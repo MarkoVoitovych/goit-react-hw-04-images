@@ -1,37 +1,37 @@
 import PropTypes from 'prop-types';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import {
-  SearchbarHeader,
+  Header,
   SearchForm,
-  SearchFormButton,
-  SearchFormButtonLabel,
-  SearchFormInput,
+  Button,
+  ButtonLabel,
+  Input,
 } from './Searchbar.styled';
 
 const Searchbar = ({ onFormSubmit }) => {
   return (
-    <Formik
-      initialValues={{ value: '' }}
-      onSubmit={(values, { resetForm }) => {
-        onFormSubmit(values.value.trim());
-        resetForm();
-      }}
-    >
-      <SearchbarHeader>
-        <Form as={SearchForm}>
-          <SearchFormButton type="submit">
-            <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-          </SearchFormButton>
+    <Header>
+      <Formik
+        initialValues={{ value: '' }}
+        onSubmit={(values, { resetForm }) => {
+          onFormSubmit(values.value.trim());
+          resetForm();
+        }}
+      >
+        <SearchForm>
+          <Button type="submit">
+            <ButtonLabel>Search</ButtonLabel>
+          </Button>
           <Field
-            as={SearchFormInput}
+            as={Input}
             name="value"
             autocomplete="off"
             autoFocus
             placeholder="Search images and photos"
           />
-        </Form>
-      </SearchbarHeader>
-    </Formik>
+        </SearchForm>
+      </Formik>
+    </Header>
   );
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Gallery } from './ImageGallery.styled';
 import ImageGalleryItem from '../ImageGalleryItem/';
 
-function ImageGallery({ images }) {
+function ImageGallery({ images, onImageClick }) {
   return (
     <Gallery>
       {images.map(image => {
@@ -13,6 +13,7 @@ function ImageGallery({ images }) {
             webformatURL={image.webformatURL}
             largeImageURL={image.largeImageURL}
             tags={image.tags}
+            onImageClick={onImageClick}
           />
         );
       })}
@@ -20,6 +21,13 @@ function ImageGallery({ images }) {
   );
 }
 
-ImageGallery.propTypes = {};
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  onImageClick: PropTypes.func.isRequired,
+};
 
 export default ImageGallery;

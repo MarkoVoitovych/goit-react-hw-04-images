@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Form } from 'formik';
 
-export const SearchbarHeader = styled.header`
+export const Header = styled.header`
   top: 0;
   left: 0;
   position: sticky;
@@ -19,7 +20,7 @@ export const SearchbarHeader = styled.header`
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `;
 
-export const SearchForm = styled.form`
+export const SearchForm = styled(Form)`
   display: flex;
   align-items: center;
   width: 100%;
@@ -29,12 +30,12 @@ export const SearchForm = styled.form`
   overflow: hidden;
 `;
 
-export const SearchFormButton = styled.button`
+export const Button = styled.button`
   display: inline-block;
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/1200px-Vector_search_icon.svg.png');
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -47,7 +48,7 @@ export const SearchFormButton = styled.button`
   }
 `;
 
-export const SearchFormButtonLabel = styled.span`
+export const ButtonLabel = styled.span`
   position: absolute;
   width: 1px;
   height: 1px;
@@ -59,7 +60,7 @@ export const SearchFormButtonLabel = styled.span`
   border: 0;
 `;
 
-export const SearchFormInput = styled.input`
+export const Input = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
