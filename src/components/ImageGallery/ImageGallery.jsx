@@ -4,6 +4,7 @@ import { Gallery } from './ImageGallery.styled';
 import ImageGalleryItem from '../ImageGalleryItem/';
 
 function ImageGallery({ images, onImageClick }) {
+  console.log('gallery render');
   return (
     <Gallery>
       {images.map(image => {
