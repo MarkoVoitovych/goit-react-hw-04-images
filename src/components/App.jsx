@@ -16,13 +16,12 @@ export function App() {
   const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
-    if (value === '' && images.length === 0) return;
+    if (value === '') return;
     setIsLoading(true);
     fetchImages(value, page)
-      .then(({ data }) => setImages([...images, ...data.hits]))
+      .then(({ data }) => setImages(prevState => [...prevState, ...data.hits]))
       .catch(err => alert(err.message))
       .finally(() => setIsLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, value]);
 
   const handleSearchbarSubmit = value => {
