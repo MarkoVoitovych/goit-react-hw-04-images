@@ -1,9 +1,16 @@
 import { GalleryImage, GalleryItem } from './ImageGalleryItem.styled';
 import PropTypes from 'prop-types';
 
-function ImageGalleryItem({ webformatURL, tags, largeImageURL, onImageClick }) {
+function ImageGalleryItem({
+  webformatURL,
+  tags,
+  largeImageURL,
+  onImageClick,
+  newImageRef,
+}) {
   return (
     <GalleryItem
+      ref={newImageRef}
       onClick={e => {
         e.preventDefault();
         onImageClick({ largeImageURL, tags });

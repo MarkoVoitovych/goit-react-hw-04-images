@@ -2,17 +2,18 @@ import PropTypes from 'prop-types';
 import { Gallery } from './ImageGallery.styled';
 import ImageGalleryItem from '../ImageGalleryItem/';
 
-function ImageGallery({ images, onImageClick }) {
+function ImageGallery({ images, onImageClick, newImageRef }) {
   return (
     <Gallery>
-      {images.map(image => {
+      {images.map((image, index, array) => {
         return (
           <ImageGalleryItem
-            key={image.id}
+            key={image.id + index}
             webformatURL={image.webformatURL}
             largeImageURL={image.largeImageURL}
             tags={image.tags}
             onImageClick={onImageClick}
+            newImageRef={array.length - 12 === index ? newImageRef : null}
           />
         );
       })}

@@ -6,6 +6,7 @@ import ImageGallery from './ImageGallery';
 import Button from './Button';
 import Loader from './Loader';
 import Modal from './Modal';
+import { useRef } from 'react';
 
 export function App() {
   const [images, setImages] = useState([]);
@@ -23,6 +24,16 @@ export function App() {
       .catch(err => alert(err.message))
       .finally(() => setIsLoading(false));
   }, [page, value]);
+
+  const newImageRef = useRef(null);
+
+  useEffect(() => {
+    if (images.length <= 12) return; // -------> per_page <--------
+    newImageRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+  }, [images]);
 
   const handleSearchbarSubmit = value => {
     setPage(1);
@@ -47,7 +58,11 @@ export function App() {
     <>
       <Searchbar onFormSubmit={handleSearchbarSubmit} />
       <AppWrapper>
-        <ImageGallery images={images} onImageClick={changeModalData} />
+        <ImageGallery
+          images={images}
+          onImageClick={changeModalData}
+          newImageRef={newImageRef}
+        />
       </AppWrapper>
       {isLoading ? (
         <Loader />
