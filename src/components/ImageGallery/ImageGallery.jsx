@@ -1,10 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Gallery } from './ImageGallery.styled';
 import ImageGalleryItem from '../ImageGalleryItem/';
 
 function ImageGallery({ images, onImageClick }) {
-  console.log('gallery render');
   return (
     <Gallery>
       {images.map(image => {
