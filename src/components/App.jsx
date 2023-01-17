@@ -41,13 +41,13 @@ export function App() {
     setImages([]);
   };
 
+  const changePage = () => {
+    setPage(prev => prev + 1);
+  };
+
   const changeModalData = modalData => {
     setModalData(modalData);
     setIsModalOpen(true);
-  };
-
-  const changePage = () => {
-    setPage(prev => prev + 1);
   };
 
   const handleModalClose = () => {
